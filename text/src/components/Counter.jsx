@@ -6,14 +6,14 @@ const Counter = () => {
     const {count} = useSelector((state) => state.counter)
     const dispatch = useDispatch();
     return (
-        <div>
-            <button  onClick={() => dispatch(incrementByValue(5))}>Increment By 5</button>
+        <div className="text-center">
+            <button className="btn btn-info" onClick={() => dispatch(incrementByValue(5))}>Increment By 5</button>
             <br />
-            <button  onClick={() => dispatch(increment())}>Increment</button>
+            <button className="btn btn-success" onClick={() => dispatch(increment())}>Increment</button>
             <div>
                 <h1>{count}</h1>
             </div>
-            <button onClick={() => dispatch(decrement())}>decrement</button>
+            <button className="btn btn-active btn-secondary" onClick={() => dispatch(decrement())}>decrement</button>
         </div>
     );
 };
