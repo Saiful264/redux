@@ -1,31 +1,14 @@
-import { Dialog, Transition } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
 
-// eslint-disable-next-line react/prop-types
 export default function Modal({ isOpen, setIsOpen, title, children }) {
-  // let [isOpen, setIsOpen] = useState(true)
-
   function closeModal() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
-
-  // function openModal() {
-  //   setIsOpen(true)
-  // }
 
   return (
     <>
-      {/* <div className="fixed inset-0 flex items-center justify-center">
-        <button
-          type="button"
-          onClick={openModal}
-          className="rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
-        >
-          Open dialog
-        </button>
-      </div> */}
-
-      <Transition appear show={isOpen} as={Fragment}>
+      <Transition appear show={isOpen} as={Fragment} className="z-[1000]">
         <Dialog as="div" className="relative z-10" onClose={closeModal}>
           <Transition.Child
             as={Fragment}
@@ -57,9 +40,7 @@ export default function Modal({ isOpen, setIsOpen, title, children }) {
                   >
                     {title}
                   </Dialog.Title>
-                  <div className="mt-2">
-                    {children}
-                  </div>
+                  {children}
                 </Dialog.Panel>
               </Transition.Child>
             </div>
@@ -67,6 +48,5 @@ export default function Modal({ isOpen, setIsOpen, title, children }) {
         </Dialog>
       </Transition>
     </>
-  )
+  );
 }
-
